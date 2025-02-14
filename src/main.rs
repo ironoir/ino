@@ -1,3 +1,7 @@
+use ino::*;
+
 fn main() {
-    println!("Hello, world!");
+    let _zero = Zero;
+    let _one = One;
+    let _cats = Cats;
 }
