@@ -1,0 +1,9 @@
+#sort !!
+#sort !
+#sort Cats
+
+#func zero : ! -> Cats
+#func one : ! -> Cats
+#func sets : ! -> Cats
+
+#func s : ! -> Cats
