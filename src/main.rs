@@ -7,18 +7,18 @@ use ino::*;
 fn main() {
     let emp = Rc::new(Sort::Prim(1));
     let dept = Rc::new(Sort::Prim(2));
-    let mgr = Func{name: "mgr".to_string(), sort: Rc::new(Sort::Func(emp.clone(), 1)) };
-    let wrk = Func{name: "wrk".to_string(), sort: Rc::new(Sort::Func(emp.clone(), 2)) };
-    let sec = Func{name: "sec".to_string(), sort: Rc::new(Sort::Func(dept.clone(), 1)) };
+    let mgr = Func{name: "mgr".to_string(), sort: Rc::new(Sort::Func(emp.clone(), emp.clone())) };
+    let wrk = Func{name: "wrk".to_string(), sort: Rc::new(Sort::Func(emp.clone(), dept.clone())) };
+    let sec = Func{name: "sec".to_string(), sort: Rc::new(Sort::Func(dept.clone(), emp.clone())) };
 
     let str = Rc::new(Sort::Prim(3));
     let int = Rc::new(Sort::Prim(4));
     let bool = Rc::new(Sort::Prim(5));
-    let last = Func{name: "last".to_string(), sort: Rc::new(Sort::Func(emp.clone(), 3)) };
-    let name = Func{name: "name".to_string(), sort: Rc::new(Sort::Func(dept.clone(), 3)) };
-    let sal = Func{name: "sal".to_string(), sort: Rc::new(Sort::Func(emp.clone(), 4)) };
+    let last = Func{name: "last".to_string(), sort: Rc::new(Sort::Func(emp.clone(), str.clone())) };
+    let name = Func{name: "name".to_string(), sort: Rc::new(Sort::Func(dept.clone(), str.clone())) };
+    let sal = Func{name: "sal".to_string(), sort: Rc::new(Sort::Func(emp.clone(), int.clone())) };
     let tru = Func{name: "true".to_string(), sort: bool.clone() };
-    let le = Func{name: "<=".to_string(), sort: Rc::new(Sort::Func(Rc::new(Sort::Mult(4, 4)), 5)) };
+    let le = Func{name: "<=".to_string(), sort: Rc::new(Sort::Func(Rc::new(Sort::Mult(int.clone(), int.clone())), bool.clone())) };
 
     let mut context1 = HashMap::new();
     context1.insert("e".to_string(), emp.clone());

@@ -9,8 +9,8 @@ use std::collections::HashMap;
 
 pub enum Sort {
     Prim(usize),
-    Func(Rc<Sort>, usize),
-    Mult(usize, usize),
+    Func(Rc<Sort>, Rc<Sort>),
+    Mult(Rc<Sort>, Rc<Sort>),
 }
 
 #[derive(Clone)]
